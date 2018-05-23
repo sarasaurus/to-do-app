@@ -34,16 +34,16 @@ export default class Dashboard extends React.Component {
     });
   }
   handleRemoveNote(noteToRemove) {
-    return this.state.notes.filter((note) => note.id === noteToRemove.id);
+    this.state.notes.filter((note) => note.id === noteToRemove.id);
   }
   handleNotesList() {
     return (
       <ul>
         {
-          this.state.notes.map((expense) => {
+          this.state.notes.map((note) => {
             return (
               <li key={note.id}>
-              {note.title}: ${note.content}
+              {note.title}: {note.content}
             </li>
             );
           })

@@ -1,6 +1,8 @@
 import React from 'react';
 import autoBind from './../../utils/'; // when a folder contains an index, no need type it, npm knows to look for index
 
+// NoteForm Component
+// onComplete the NoteForm should add a note to the application state
 export default class NoteForm extends React.Component {
   constructor(props) {
     super(props);
