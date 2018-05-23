@@ -8,7 +8,9 @@ export default function NoteList(props) {
         props.notes.map((note) => {
           return (
             <li key={note.id}>
-            {note.title}: {note.content}
+                <h1>{note.title}</h1>
+              <h3>{note.id}</h3>
+              <p>{note.content}</p>
           </li>
           );
         })
@@ -16,4 +18,3 @@ export default function NoteList(props) {
     </ul>
   );
 }
-

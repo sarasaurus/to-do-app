@@ -11,7 +11,7 @@ export default class NoteForm extends React.Component {
     this.state = {
       title: '',
       content: '',
-      id: '',
+      id: uuid(),
       createdOn: '',
     };
     autoBind.call(this, NoteForm);

@@ -22,7 +22,7 @@ export default class Dashboard extends React.Component {
     if (note.title === '') {
       return this.setState({ error: true });
     }
-    // took out date
+    // note.createdOn = new Date();
     // took out id creation
     // when we pass the previousState in, it allows us to add to the previous state-- so say previous state was 1, we can now add new input to it-- REACT is immutable so we make copies, not .push, see the spread oprtr
     // here prefivious state is the previous state of the expense-form child which we pass in
@@ -34,22 +34,24 @@ export default class Dashboard extends React.Component {
       };
     });
   }
-  // took out handle remove
-  handleNotesList() {
-    return (
-      <ul>
-        {
-          this.state.notes.map((note) => {
-            return (
-              <li key={note.id}>
-              {note.title}: {note.content}
-            </li>
-            );
-          })
-        }
-      </ul>
-    );
-  }
+  // handle remove here at one time
+  // handleNotesList() {
+  //   return (
+  //     <ul>
+  //       {
+  //         this.state.notes.map((note) => {
+  //           return (
+  //             <li key={note.id}>
+  //             <h1>{note.title}</h1>
+  //             <h3>{note.id}</h3>
+  //             <p>{note.content}</p>
+  //           </li>
+  //           );
+  //         })
+  //       }
+  //     </ul>
+  //   );
+  // }
   render() {
     return (
     <section className="dashboard">
