@@ -1,6 +1,7 @@
 import React from 'react';
-import uuid from 'uuid';
 import NoteForm from './../note-form/';
+import NoteItem from './../note-item';
+import NoteList from './../note-list';
 import autoBind from '../../utils';
 
 // TODO: this component will manage state of the entire app
@@ -21,8 +22,8 @@ export default class Dashboard extends React.Component {
     if (note.title === '') {
       return this.setState({ error: true });
     }
-    note.createdOn = new Date();
-    note.id = uuid();
+    // took out date
+    // took out id creation
     // when we pass the previousState in, it allows us to add to the previous state-- so say previous state was 1, we can now add new input to it-- REACT is immutable so we make copies, not .push, see the spread oprtr
     // here prefivious state is the previous state of the expense-form child which we pass in
     return this.setState((previousState) => {
@@ -33,9 +34,7 @@ export default class Dashboard extends React.Component {
       };
     });
   }
-  handleRemoveNote(noteToRemove) {
-    this.state.notes.filter((note) => note.id === noteToRemove.id);
-  }
+  // took out handle remove
   handleNotesList() {
     return (
       <ul>
@@ -57,8 +56,8 @@ export default class Dashboard extends React.Component {
     <h1>To-Do App Dashboard</h1>
     <NoteForm handleAddNote={this.handleAddNote}/>
     { this.state.error && <h2 className="error">You must enter a title.</h2> }
-    { this.handleNotesList() }
-    <p> remove a note here somehow</p>
+    <NoteItem handleRemoveNote={this.handleRemoveNote}/>
+    <NoteList notes={this.state.notes} />
     </section>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import autoBind from './../../utils/'; // when a folder contains an index, no need type it, npm knows to look for index
 
 // NoteForm Component
@@ -10,11 +11,17 @@ export default class NoteForm extends React.Component {
     this.state = {
       title: '',
       content: '',
+      id: '',
+      createdOn: '',
     };
     autoBind.call(this, NoteForm);
   }
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({
+      id: uuid(),
+      createdOn: new Date(),
+    });
     this.props.handleAddNote(this.state);
   }
   handleChange(event) {
