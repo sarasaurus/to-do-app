@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Dashboard from './../dashboard';
+import Landing from './../landing';
 import '../../../styles/main.scss';
 
 // dashboard is the main funcitonality in our code, app is now just a container for dashboard, like body tag no state!
@@ -26,7 +27,7 @@ export default class App extends React.Component {
   <Route 
     exact
     path="/"
-    component={() => <h1>this is defining the home page, here is is allowing you to just diy your code--- i imagine you could pass a pre-built component here if you wanted to--- oh look we just did in Dashboard</h1>}
+    component={Landing}
     />
   <Route 
     exact
