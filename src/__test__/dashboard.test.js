@@ -7,9 +7,9 @@ import Dashboard from './../component/dashboard';
 
 configure({ adapter: new Adapter() });
 
-describe('Dashboard testing', ()=>{
-  test('simple test', ()=>{
+describe('Dashboard testing', () => {
+  test('simple test', () => {
     const mountedDashBoard = mount(<Dashboard />);
-    expect(mountedDashBoard.state('expenses')).toEqual([]);
+    expect(mountedDashBoard.state('notes')).toEqual([]);
   });
 });
