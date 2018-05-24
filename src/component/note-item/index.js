@@ -19,7 +19,7 @@ class NoteItem extends React.Component {
       [name]: value, 
     });
   }
-
+// vinicio added an addiotional .bind to the handlesubmit... i think maybe because hiscode is diff
   render() {
     return (
       // we must use className because 'class' is a JS reserved word, REACT requires us to differentiate by using className to avoid confusion
@@ -33,7 +33,7 @@ class NoteItem extends React.Component {
     );
   }
 // NoteItem.propTypes = {
-//   note: PropTypes.object,
+//   note: PropTypes.func,
 // }
 
 };
