@@ -34,9 +34,12 @@ export default class Dashboard extends React.Component {
     if (!id) {
       return this.setState({ error: true });
     }
-    this.setState({
-      notes: this.state.notes.filter(note => note.id !== id),
-      error: null,
+    // venicio passes in the previous state and returns the new state
+    this.setState((previousState) => {
+      return {
+        notes: previousState.notes.filter(note => note.id !== id),
+        error: null,
+      };
     });
     console.log('delete', this.state);
   }
