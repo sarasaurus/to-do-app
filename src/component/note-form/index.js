@@ -1,9 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
-import autoBind from './../../utils/'; // when a folder contains an index, no need type it, npm knows to look for index
+import autoBind from './../../utils/';
 
-// NoteForm Component
-// onComplete the NoteForm should add a note to the application state
 export default class NoteForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,10 +23,9 @@ export default class NoteForm extends React.Component {
     this.props.handleAddNote(this.state);
   }
   handleChange(event) {
-    const { name, value } = event.target; // events have these properties named as such already so can destructure
-    // when we create form name, and value will map back to here-- just making it simple to purposefully link these [brackets] allow it to be dynamic?
+    const { name, value } = event.target; 
     this.setState({
-      [name]: value, // this will be event.target.name
+      [name]: value, 
     });
   }
 

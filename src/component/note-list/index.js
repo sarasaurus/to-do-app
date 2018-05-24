@@ -7,7 +7,6 @@ export default class NoteList extends React.Component {
 
   render() {
     console.log(this.props);
-   
     return (
       <section className="NoteList">
       {

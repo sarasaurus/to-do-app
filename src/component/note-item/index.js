@@ -7,18 +7,15 @@ export default class NoteItem extends React.Component {
     super(props);
     autoBind.call(this, NoteItem);
   }
-  // handleRemoveNote(noteToRemove) {
-  //   this.state.notes.filter((note) => note.id === noteToRemove.id);
-  // }
+
   handleSubmit(event) {
     event.preventDefault();
     this.props.handleRemove(event.target.value);
   }
   handleChange(event) {
-    const { name, value } = event.target; // events have these properties named as such already so can destructure
-    // when we create form name, and value will map back to here-- just making it simple to purposefully link these [brackets] allow it to be dynamic?
+    const { name, value } = event.target;
     this.setState({
-      [name]: value, // this will be event.target.name
+      [name]: value, 
     });
   }
   render() {
