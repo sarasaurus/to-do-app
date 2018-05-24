@@ -1,20 +1,29 @@
 import React from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import '../../../styles/main.scss';
+import NoteItem from './../note-item';
 
-export default function NoteList(props) {
-  return (
-    <ul>
+export default class NoteList extends React.Component {
+
+  render() {
+    console.log(this.props);
+   
+    return (
+      <section className="NoteList">
       {
-        props.notes.map((note) => {
-          return (
-            <li key={note.id}>
-                <h1>{note.title}</h1>
-              <h3>{note.id}</h3>
-              <p>{note.content}</p>
-          </li>
-          );
-        })
-      }
-    </ul>
-  );
+        this.props.notes.map((note, index) => {
+        return (
+          <NoteItem 
+          key= {index}
+          title = {note.title}
+          id={note.id}
+          content={note.content}
+          handleRemove={this.props.handleRemove}
+           />
+        );
+      })
+    }
+    </section>
+    );
+  }
 }

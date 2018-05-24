@@ -2,6 +2,7 @@ import React from 'react';
 import NoteForm from './../note-form/';
 import NoteItem from './../note-item';
 import NoteList from './../note-list';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import autoBind from '../../utils';
 
 // TODO: this component will manage state of the entire app
@@ -34,6 +35,18 @@ export default class Dashboard extends React.Component {
       };
     });
   }
+  handleRemove(id) {
+    if (!id) {
+      return this.setState({ error: true });
+    }
+    this.setState(() => {
+      return {
+        notes: [this.state.notes.filter(note => note.id !== id)],
+        error: null,
+      };
+    });
+  }
+     
   // handle remove here at one time
   // handleNotesList() {
   //   return (
@@ -58,8 +71,8 @@ export default class Dashboard extends React.Component {
     <h1>To-Do App Dashboard</h1>
     <NoteForm handleAddNote={this.handleAddNote}/>
     { this.state.error && <h2 className="error">You must enter a title.</h2> }
-    <NoteItem handleRemoveNote={this.handleRemoveNote}/>
-    <NoteList notes={this.state.notes} />
+    {/* <NoteItem handleRemoveNote={this.handleRemoveNote}/> */}
+    <NoteList notes={this.state.notes} handleRemove={this.handleRemove} />
     </section>
     );
   }

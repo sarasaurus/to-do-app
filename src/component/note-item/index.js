@@ -12,7 +12,7 @@ export default class NoteItem extends React.Component {
   // }
   handleSubmit(event) {
     event.preventDefault();
-    this.props.notes.filter((note) => note.id === this.target.value);
+    this.props.handleRemove(event.target.value);
   }
   handleChange(event) {
     const { name, value } = event.target; // events have these properties named as such already so can destructure
@@ -27,14 +27,7 @@ export default class NoteItem extends React.Component {
       <h1>{this.props.title}</h1>
       <p>{this.props.content}</p>
       
-      <form onSubmit={this.handleSubmit}>
-         <input
-          type="text"
-          name="noteToRemove"
-          placeholder="Note to Remove"
-          value={this.props.id}
-          onChange={this.handleChange}/>
-      </form>
+      <button value={this.props.id} onClick={this.handleSubmit}>delete note</button>
       </section>
     );
   }
