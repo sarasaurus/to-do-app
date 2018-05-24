@@ -3,12 +3,13 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import '../../../styles/main.scss';
 import NoteItem from './../note-item';
 
+
 export default class NoteList extends React.Component {
 
   render() {
     console.log(this.props);
     return (
-      <section className="NoteList">
+      <section className="note-list">
       {
         this.props.notes.map((note, index) => {
         return (
@@ -25,4 +26,9 @@ export default class NoteList extends React.Component {
     </section>
     );
   }
+  // NoteItem.PropTypes = {
+  //   note: PropTypes.object,
+  // };
 }
+
+// noteItem expense=expense--- this should automatically grab the props

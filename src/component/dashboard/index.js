@@ -1,20 +1,23 @@
 import React from 'react';
 import NoteForm from './../note-form/';
-import NoteItem from './../note-item';
 import NoteList from './../note-list';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
 import autoBind from '../../utils';
+import '../../../styles/main.scss';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-
+    // this is APPLICATION state -- should be in minimal places, ie right here, one place
+    // soon we will move this to REDUX, sometimes its not obvious UI vs APP, but is ok
     this.state = {
       notes: [],
       error: null,
     };
     autoBind.call(this, Dashboard);
   }
+  // --------------------------------------------------------------------------------------
+  // developer created funcitons-- MEMBER FUNCTIONS
+  // --------------------------------------------------------------------------------------
   handleAddNote(note) {
     if (note.title === '') {
       return this.setState({ error: true });
@@ -26,6 +29,7 @@ export default class Dashboard extends React.Component {
       };
     });
   }
+  // this function affects the app state -- therefore this function should go here
   handleRemove(id) {
     if (!id) {
       return this.setState({ error: true });
@@ -36,6 +40,10 @@ export default class Dashboard extends React.Component {
     });
     console.log('delete', this.state);
   }
+  // --------------------------------------------------------------------------------------
+  // LIFE CYCLE HOOKS
+  /* These will be things like React provided functions-- the  */
+  // --------------------------------------------------------------------------------------
   render() {
     return (
     <section className="dashboard">

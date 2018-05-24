@@ -1,0 +1,22 @@
+// --------------------------------------------------------------------------------------
+// COLORS
+// --------------------------------------------------------------------------------------
+@import 'vars';
+// notice not using underscore or extension sass knows how to find
+
+body {
+  background: $background-color;
+  font-family: sans-serif;
+  color: $font-color;
+}
+a {
+  color: $font-color;
+  text-decoration: none;
+
+}
+a:hover {
+  text-decoration: underline;
+}
+.error {
+  border: 1px solid $error;
+}
