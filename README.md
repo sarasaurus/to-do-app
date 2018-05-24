@@ -2,11 +2,14 @@
 **Author**: Sarah
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+This is a very basic to-do list single page application using the React library
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+- fork this repo
+- npm i to install dependencies
+- npm run watch to open a tab in your default browser which runs the app
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+babel is used for transpiling, webpack is bundling, sass is adding funcitonality to the css, react is providing the library to manage state, components etc in a SPA, react-router-dom is making the pseudo-routes and history, mini-css-loader is bundling our css into a single linked css file, eslint is keeping the code consistent... uuid is making some great unique ids.
+
 ## Change Log
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+01-01-2001 4:59pm - Application now has 2 'pages' a form and a list of tasks that can be deleted
