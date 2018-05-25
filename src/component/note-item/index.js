@@ -72,7 +72,7 @@ class NoteItem extends React.Component {
         {/* here we are setting the show value to be true or false, via our editing prop */}
       <Modal show={note.editing} handleClose={hideModal}>
       <h3>Editing {note.title}</h3>
-      <NoteForm handleAddNote={handleUpdateNote} note={note}/>
+      <NoteForm handleAddNote={updateAndClose} note={note}/>
       {/* this will become props.children --- this is fairly uncommon but good to be familiar, mostly yuo'll build self-closing components */}
       </Modal>
       </section>
