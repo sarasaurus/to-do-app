@@ -33,6 +33,7 @@ export default class NoteForm extends React.Component {
     // };
     autoBind.call(this, NoteForm);
   } 
+  
   // / vinicio takes this out of our funciton and pusts it outside our component
   // --------------------------------------------------------------------------------------
   // developer created funcitons-- MEMBER FUNCTIONS
@@ -58,6 +59,8 @@ export default class NoteForm extends React.Component {
   // LIFECYCLE HOOKS
   // --------------------------------------------------------------------------------------
   render() {
+    // console.log('THIS.STATE', this.state);
+    // console.log('EMPTY STATE', emptyState);
     const buttonText = this.props.note ? 'Update' : 'Create';
     return (
       <form onSubmit={this.handleSubmit}>

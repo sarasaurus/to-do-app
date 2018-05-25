@@ -56,7 +56,7 @@ class NoteItem extends React.Component {
     // no need to bind because no onlcick input, if trying to get event.target input-- then need to bind
     const hideModal = () => handleUpdateNote({ ...note, editing: false });
 
-    const updateAndClose = updatedNote => handleUpdateNote({ ...note, editing: false });
+    const updateAndClose = updatedNote => handleUpdateNote({ ...updatedNote, editing: false });
 
 
     return (
@@ -70,9 +70,9 @@ class NoteItem extends React.Component {
       <button>Update</button>
       {/* <button onClick={showModal}>Edit</button> */}
         {/* here we are setting the show value to be true or false, via our editing prop */}
-      <Modal show={note.editing}>
+      <Modal show={note.editing} handleClose={hideModal}>
       <h3>Editing {note.title}</h3>
-      <NoteForm handleAddNote={updateAndClose} note={this.props.note}/>
+      <NoteForm handleAddNote={handleUpdateNote} note={note}/>
       {/* this will become props.children --- this is fairly uncommon but good to be familiar, mostly yuo'll build self-closing components */}
       </Modal>
       </section>
