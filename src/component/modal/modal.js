@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './modal.scss';
 
-
+/**TODO:
+Create a modal component that uses this.props.children to define the content of the modal
+Use the modal somewhere in your project */
 // modal will be a pop up editing window
 class Modal extends React.Component {
   render () {

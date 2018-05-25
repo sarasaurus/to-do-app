@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import '../../../styles/main.scss';
 import NoteItem from './../note-item';
@@ -15,10 +16,12 @@ export default class NoteList extends React.Component {
         return (
           <NoteItem 
           key= {index}
+          note = {note}
           title = {note.title}
           id={note.id}
           content={note.content}
           handleRemove={this.props.handleRemove}
+          handleUpdateNote={this.props.handleUpdateNote}
            />
         );
       })
@@ -26,9 +29,8 @@ export default class NoteList extends React.Component {
     </section>
     );
   }
-  // NoteItem.PropTypes = {
-  //   note: PropTypes.object,
-  // };
 }
-
+// NoteList.PropTypes = {
+//   notes: PropTypes.object,
+// };
 // noteItem expense=expense--- this should automatically grab the props

@@ -7,8 +7,6 @@ import '../../../styles/main.scss';
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    // this is APPLICATION state -- should be in minimal places, ie right here, one place
-    // soon we will move this to REDUX, sometimes its not obvious UI vs APP, but is ok
     this.state = {
       notes: [],
       error: null,
@@ -29,7 +27,7 @@ export default class Dashboard extends React.Component {
       };
     });
   }
-  // this function affects the app state -- therefore this function should go here
+
   handleRemove(id) {
     if (!id) {
       return this.setState({ error: true });
@@ -45,7 +43,7 @@ export default class Dashboard extends React.Component {
     console.log('delete', this.state);
   }
   // update just one slot of the array, .map
-  handleUpdate(noteToUpdate) {
+  handleUpdateNote(noteToUpdate) {
     if (!noteToUpdate) {
       return this.setState({ error: true });
     }
@@ -67,9 +65,9 @@ export default class Dashboard extends React.Component {
     return (
     <section className="dashboard">
     <h1>To-Do App Dashboard</h1>
-    <NoteForm handleAddNote={this.handleAddNote} handleUpdate={this.handleUpdate} />
+    <NoteForm handleAddNote={this.handleAddNote} />
     { this.state.error && <h2 className="error">You must enter a title.</h2> }
-    <NoteList notes={this.state.notes} handleRemove={this.handleRemove} />
+    <NoteList notes={this.state.notes} handleRemove={this.handleRemove} handleUpdateNote={this.handleUpdateNote} />
     </section>
     );
   }
