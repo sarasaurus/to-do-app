@@ -30,7 +30,3 @@ export default class NoteList extends React.Component {
     );
   }
 }
-// NoteList.PropTypes = {
-//   notes: PropTypes.object,
-// };
-// noteItem expense=expense--- this should automatically grab the props

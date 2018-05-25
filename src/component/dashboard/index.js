@@ -32,17 +32,14 @@ export default class Dashboard extends React.Component {
     if (!id) {
       return this.setState({ error: true });
     }
-    // venicio passes in the previous state and returns the new state-- because setState is ASYNC-- if you want to runs something as soon as the state changes you'd need to pass a second callback to setstate... here previousState is ensuring we are grabbing the state we want here
     this.setState((previousState) => {
       return {
         notes: previousState.notes.filter(note => note.id !== id),
         error: null,
       };
-      // vinivios' lecture code puts the note-list logic here
     });
-    console.log('delete', this.state);
   }
-  // update just one slot of the array, .map
+ 
   handleUpdateNote(noteToUpdate) {
     if (!noteToUpdate) {
       return this.setState({ error: true });
@@ -53,13 +50,11 @@ export default class Dashboard extends React.Component {
         error: null,
       };
     });
-    console.log('delete', this.state);
   }
 
 
   // --------------------------------------------------------------------------------------
   // LIFE CYCLE HOOKS
-  /* These will be things like React provided functions-- the  */
   // --------------------------------------------------------------------------------------
   render() {
     return (
@@ -72,4 +67,5 @@ export default class Dashboard extends React.Component {
     );
   }
 }
-// note DO NOT CALL FUNCITONS WHEN ADDING--- that will attach the return of the funciton-- not funciton itself
+
+// note DO NOT CALL FUNCITONS WHEN ADDING--- that will attach the return of the funciton-- not function itself
