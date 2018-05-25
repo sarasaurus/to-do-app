@@ -1,22 +1,32 @@
-$background-color: #ffffff;
-$header-color: #0000ff;
-$font-color: #000000;
-$error: #ff0000;
-$font-fam: Arial, Helvetica, sans-serif;
+@import 'normalize';
+@import 'base';
 
-
-html, body {
-  background: $background-color;
+.app {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  }
+.dashboard{
+ margin-top: $spacing;
+  
+}
+.note-item {
+  margin-top: $spacing;
+  background-color: $quiet;
 
 }
-p,h1,h2,ul, pre, label, form {
-  color: $font-color;
-  font-family: $font-fam; 
+.note-form {
+  margin-top: $spacing;
 }
-h1 {
-  color: $header-color;
+input {
+  margin-left: $spacing;
 }
-.error {
-  border: 1px solid $error;
+button {
+  margin-left: 2%;
 }
 
+// 
+// TODO: Add styling to your To Do App! make it look nice :
+// --------------------------------------------------------------------------------------
+// no need do too much here for now, later will have layout stuff, but for now just knitting our files together
+// --------------------------------------------------------------------------------------

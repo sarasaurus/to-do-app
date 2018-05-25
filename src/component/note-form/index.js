@@ -1,26 +1,34 @@
 import React from 'react';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
 import autoBind from './../../utils/';
+import '../../../styles/main.scss';
 
+const emptyState = {
+   
+  title: '',
+  content: '',
+  id: uuid(),
+  createdOn: '',
+
+};
 export default class NoteForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      title: '',
-      content: '',
-      id: uuid(),
-      createdOn: '',
-    };
+    this.state = this.props.note ? this.props.note : emptyState;
     autoBind.call(this, NoteForm);
-  }
+  } 
+  
+  // --------------------------------------------------------------------------------------
+  // developer created functions-- MEMBER FUNCTIONS
+  // --------------------------------------------------------------------------------------
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
       id: uuid(),
       createdOn: new Date(),
     });
-    this.props.handleAddNote(this.state);
+    this.props.handleAddNote(this.state); 
   }
   handleChange(event) {
     const { name, value } = event.target; 
@@ -28,10 +36,13 @@ export default class NoteForm extends React.Component {
       [name]: value, 
     });
   }
-
+  // --------------------------------------------------------------------------------------
+  // LIFECYCLE HOOKS
+  // --------------------------------------------------------------------------------------
   render() {
+    const buttonText = this.props.note ? 'Update' : 'Create';
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="note-form" onSubmit={this.handleSubmit}>
          <input
           type="text"
           name="title"
@@ -45,8 +56,9 @@ export default class NoteForm extends React.Component {
           placeholder="content"
           value={this.state.content}
           onChange={this.handleChange}/>
-          <button type="submit">create note</button>
+          <button type="submit">{buttonText}</button>
       </form>
     );
   }
 }
+
