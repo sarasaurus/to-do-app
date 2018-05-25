@@ -15,6 +15,8 @@
   height: 100%;
   background: $modal-color;
   .modal-main{
+    padding: $spacing;
+    padding-left: 10%;
     position: fixed;
     background: $modal-color;
     top:50%;

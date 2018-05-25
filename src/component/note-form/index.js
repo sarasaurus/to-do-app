@@ -42,7 +42,7 @@ export default class NoteForm extends React.Component {
   render() {
     const buttonText = this.props.note ? 'Update' : 'Create';
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="note-form" onSubmit={this.handleSubmit}>
          <input
           type="text"
           name="title"

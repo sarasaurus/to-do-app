@@ -37,9 +37,8 @@ class NoteItem extends React.Component {
     return (
 
       <section className="note-item">
-      <strong>{note.title}</strong>
+      <h2>{note.title}</h2>
       <p value = {note} onDoubleClick={showModal}>{note.content}</p>
-      
       <button value={note.id} onClick={this.handleSubmit}>delete note</button>
       <button>Update</button>
       <Modal show={note.editing} handleClose={hideModal}>

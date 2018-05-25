@@ -59,7 +59,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
     <section className="dashboard">
-    <h1>To-Do App Dashboard</h1>
+    <h1>Add To-Do Items to make a List</h1>
     <NoteForm handleAddNote={this.handleAddNote} />
     { this.state.error && <h2 className="error">You must enter a title.</h2> }
     <NoteList notes={this.state.notes} handleRemove={this.handleRemove} handleUpdateNote={this.handleUpdateNote} />
