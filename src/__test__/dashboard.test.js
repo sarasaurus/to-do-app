@@ -10,25 +10,29 @@ describe('Dashboard testing', () => {
     const mountedDashBoard = enzymeShallowMount(<Dashboard />);
     expect(mountedDashBoard.state('notes')).toEqual([]);
   });
-  test('Dashboard should display an H1 heading saying blah blah blah', () => {
+  test('Dashboard should display an H1 heading containging T-Do items', () => {
     const mountedDashBoard = enzymeShallowMount(<Dashboard />);
-    expect(mountedDashBoard.find('h1')).toEqual('To-Do App Dashboard');
+    expect(mountedDashBoard.find('h1')).toContain('To-Do Items');
   });
   test('Dashboard should contain a NoteForm', () => {
     const mountedDashBoard = enzymeShallowMount(<Dashboard />);
     expect(mountedDashBoard.find('NoteForm')).toBeTruthy();
   });
-  test('Expenses shoudl be added correctly to the internal state', () => {
+  test('notes should be added correctly to the internal state', () => {
     const mountedDashBoard = enzymeShallowMount(<Dashboard />);
     mountedDashBoard.setState({
-      expenses: [
+      notes: [
         {
-          note: 'title',
-          content: 'my life story',
+          note: {
+            title: 'poop',
+            content: 'ugh',
+          },
         },
         {
-          note: 'new day',
-          content: 'new digs',
+          note: {
+            title: 'blahblah',
+            content: 'ugh2',
+          },
         },
       ],
     });
